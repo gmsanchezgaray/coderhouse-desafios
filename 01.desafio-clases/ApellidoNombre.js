@@ -9,8 +9,8 @@ class Usuario {
     console.log(`${this.nombre} ${this.apellido}`);
   }
 
-  addBook(nombreLibro, autorLibro) {
-    this.libros.push({ nombre: nombreLibro, autor: autorLibro });
+  addBook(nombre, autor) {
+    this.libros.push({ nombre, autor });
   }
 
   getBookNames() {
