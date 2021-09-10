@@ -22,7 +22,7 @@ class Usuario {
     this.mascotas.push(nombreMascota);
   }
   countMascotas() {
-    console.log(this.mascotas.length, "mascotas");
+    console.log(this.mascotas.length);
   }
 }
 
