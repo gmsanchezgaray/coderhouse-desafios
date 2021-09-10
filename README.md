@@ -1,1 +1,1 @@
-This is a Coderhouse exercises repository.
+🚀 This is a Coderhouse exercises repository. 🚀
