@@ -22,6 +22,12 @@ const newProduct3 = {
     "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
 };
 
+// const checkId = async () => {
+//   const id = await miContenedor.save(newProduct);
+//   console.log(id);
+// };
+// checkId();
+
 // miContenedor.save(newProduct);
 // miContenedor.save(newProduct2);
 // miContenedor.save(newProduct3);

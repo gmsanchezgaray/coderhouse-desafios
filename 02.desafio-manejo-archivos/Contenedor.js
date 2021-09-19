@@ -20,8 +20,9 @@ class Contenedor {
         products = dataParsed;
       }
 
-      const productsString = JSON.stringify(products);
+      const productsString = JSON.stringify(products, null, 2);
       await fs.promises.writeFile(`./${this.file}`, productsString);
+      return Object.id;
     } catch (error) {
       console.log("No se ha podido guardar =>", error);
     }
@@ -30,17 +31,23 @@ class Contenedor {
   async getById(Number) {
     try {
       const data = await fs.promises.readFile(`./${this.file}`, "utf-8");
-      const dataParsed = JSON.parse(data);
 
-      const productObject = dataParsed.find((product) => product.id === Number);
-      if (productObject) {
-        console.log(productObject);
-      } else {
-        console.log(null);
+      if (data !== "") {
+        const dataParsed = JSON.parse(data);
+
+        const productObject = dataParsed.find(
+          (product) => product.id === Number
+        );
+        if (productObject) {
+          console.log(productObject);
+        } else {
+          console.log(null);
+        }
       }
-    } catch {
+    } catch (error) {
       console.log(
-        `Hubo un error tratando de buscar el producto con el id => ${Number}`
+        `Hubo un error tratando de buscar el producto con el id => ${Number}`,
+        error
       );
     }
   }
@@ -48,8 +55,10 @@ class Contenedor {
   async getAll() {
     try {
       const data = await fs.promises.readFile(`./${this.file}`, "utf-8");
-      const dataParsed = JSON.parse(data);
-      console.log(dataParsed);
+      if (data !== "") {
+        const dataParsed = await JSON.parse(data);
+        console.log(dataParsed);
+      }
     } catch (error) {
       console.log("Hubo un error al traer los productos =>", error);
     }
@@ -58,13 +67,18 @@ class Contenedor {
   async deleteById(Number) {
     try {
       const data = await fs.promises.readFile(`./${this.file}`, "utf-8");
-      const dataParsed = JSON.parse(data);
+      if (data !== "") {
+        const dataParsed = JSON.parse(data);
 
-      const newList = dataParsed.filter((product) => product.id != Number);
-      const newListString = JSON.stringify(newList);
+        const newList = dataParsed.filter((product) => product.id != Number);
+        const newListString = JSON.stringify(newList, null, 2);
 
-      await fs.promises.writeFile(`./${this.file}`, newListString);
-      // console.log(newList);
+        if (newListString === "[]") {
+          await fs.promises.writeFile(`./${this.file}`, "");
+        } else {
+          await fs.promises.writeFile(`./${this.file}`, newListString);
+        }
+      }
     } catch (error) {
       console.log("Hubo un error al eliminar el producto =>", error);
     }
@@ -73,6 +87,7 @@ class Contenedor {
   async deleteAll() {
     try {
       const data = await fs.promises.writeFile(`./${this.file}`, "");
+      return data;
     } catch (error) {
       console.log("Hubo un error al eliminar todos los productos =>", error);
     }
