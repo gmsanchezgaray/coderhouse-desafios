@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05be"
+  },
+  "title": "Calculadora",
+  "price": 1700,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05bf"
+  },
+  "title": "Globo Terráqueo",
+  "price": 4320,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05c1"
+  },
+  "title": "Mochila",
+  "price": 2300,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/bag-pack-container-school-256.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05c2"
+  },
+  "title": "Microscopio",
+  "price": 4990,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/microscope-lab-science-school-512.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05c4"
+  },
+  "title": "Pizarra",
+  "price": 3350,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/board-math-class-school-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05c5"
+  },
+  "title": "Agenda",
+  "price": 1280,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/paper-clip-academic-note-exam-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "61918c0d5e4ad26070bf05c6"
+  },
+  "title": "Reloj",
+  "price": 2860,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/clock-stopwatch-timer-time-512.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "61918c295e4ad26070bf05c7"
+  },
+  "title": "Tubo de ensayo",
+  "price": 3860,
+  "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/tube-lab-science-school-256.png",
+  "stock": 100
+}]

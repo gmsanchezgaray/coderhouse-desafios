@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b2"
+  },
+  "email": "matute@gmail.com",
+  "text": "buenas",
+  "date": "07/11/2021 00:42:17"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b3"
+  },
+  "email": "gIgnacio@gmail.com",
+  "text": "Todo bien!",
+  "date": "07/11/2021 00:42:46"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b4"
+  },
+  "email": "andress@gmail.com ",
+  "text": "todo correcto",
+  "date": "07/11/2021 00:43:03"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b5"
+  },
+  "email": "aabel@gmail.com",
+  "text": "arreglaron el server ya?",
+  "date": "07/11/2021 00:43:14"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b6"
+  },
+  "email": "martin@gmail.com",
+  "text": "todavia no. Estamos en eso",
+  "date": "07/11/2021 00:43:39"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b7"
+  },
+  "email": "pedro@gmail.com",
+  "text": "Hola",
+  "date": "07/11/2021 00:43:59"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b8"
+  },
+  "email": "anaMaria@gmail.com",
+  "text": "Haciendo los ejercicios de Coder",
+  "date": "07/11/2021 00:44:20"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05b9"
+  },
+  "email": "gonzalo@gmail.com",
+  "text": "No los termine aun",
+  "date": "07/11/2021 00:44:50"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05ba"
+  },
+  "email": "ezequiel@gmail.com",
+  "text": "Te doy una mano si queres",
+  "date": "07/11/2021 00:45:15"
+},{
+  "_id": {
+    "$oid": "619182db5e4ad26070bf05bb"
+  },
+  "email": "mariana@gmail.com",
+  "text": "Me sumo",
+  "date": "07/11/2021 00:45:16"
+}]
