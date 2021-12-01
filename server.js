@@ -3,12 +3,22 @@ const { Server: SocketServer } = require("socket.io");
 const { Server: HttpServer } = require("http");
 
 // Metodos de Productos y Mensajes
-const { getAllProducts, addProduct } = require("./models/products");
-const { getAllMessages, addMessage } = require("./models/messages");
+const {
+  getAllProducts,
+  addProduct,
+  getAllProductsFaker,
+} = require("./models/products");
+const {
+  getAllMessages,
+  addMessage,
+  getAllMessagesNormalized,
+} = require("./models/messages");
 
 // Routers
 const productsRouter = require("./routers/products");
 const messagesRouter = require("./routers/messages");
+const productsFakerRouter = require("./routers/productsFaker");
+
 // CONFIGURACION
 const app = express();
 const httpServer = new HttpServer(app);
@@ -26,6 +36,9 @@ app.use(express.static("public"));
 app.use("/api/productos", productsRouter);
 app.use("/api/mensajes", messagesRouter);
 
+// Ruta de productos faker
+app.use("/api/products-test", productsFakerRouter);
+
 io.on("connection", async (socket) => {
   console.log("Nuevo usuario conectado");
 
@@ -33,6 +46,11 @@ io.on("connection", async (socket) => {
   const productos = await getAllProducts();
 
   socket.emit("products", productos);
+
+  //!Ver todos los productos de faker
+  const productosFaker = await getAllProductsFaker();
+
+  socket.emit("products-faker", productosFaker);
 
   //Agregar un producto y que todos los vean
   socket.on("add-product", async (product) => {
@@ -43,7 +61,8 @@ io.on("connection", async (socket) => {
   });
 
   //Ver todos los chats y mensajes cuando inician la pagina
-  const mensajes = await getAllMessages();
+  // const mensajes = await getAllMessages();
+  const mensajes = await getAllMessagesNormalized();
   socket.emit("messages", mensajes);
 
   //Agregar un mensaje en el chat y que todos lo vean

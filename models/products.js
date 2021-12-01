@@ -1,11 +1,21 @@
+const faker = require("faker");
 const Contenedor = require("../Contenedor");
-const { mysqlOptions } = require("./databases");
 
-const productoContenedor = new Contenedor(mysqlOptions, "products");
+const productoContenedor = new Contenedor("./data/productos.json");
 
 const getAllProducts = async () => {
   const productos = await productoContenedor.getAll();
   return productos;
+};
+
+const getAllProductsFaker = async () => {
+  const productosFaker = await [...new Array(5)].map((_, index) => ({
+    id: index,
+    title: faker.commerce.product(),
+    price: faker.commerce.price(),
+    thumbnail: faker.image.imageUrl(),
+  }));
+  return productosFaker;
 };
 
 const getOneProduct = async (indexNumber) => {
@@ -38,4 +48,5 @@ module.exports = {
   addProduct,
   editProduct,
   deleteProduct,
+  getAllProductsFaker,
 };

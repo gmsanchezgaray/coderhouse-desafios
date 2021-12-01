@@ -1,11 +1,18 @@
 const Contenedor = require("../Contenedor");
-const { sqliteOptions } = require("./databases");
+const { normalizeMessages } = require("../utils/normalizar");
 
-const mensajesContenedor = new Contenedor(sqliteOptions, "messages");
+const mensajesContenedor = new Contenedor("./data/chats.json");
 
 const getAllMessages = async () => {
   const messages = await mensajesContenedor.getAll();
   return messages;
+};
+
+const getAllMessagesNormalized = async () => {
+  const messages = await mensajesContenedor.getAll();
+  console.log(messages);
+  // return messages;
+  return normalizeMessages({ id: "messages", messages });
 };
 
 const getOneMessage = async (indexNumber) => {
@@ -38,4 +45,5 @@ module.exports = {
   addMessage,
   editMessage,
   deleteMessage,
+  getAllMessagesNormalized,
 };

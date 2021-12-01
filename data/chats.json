@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "author": {
+      "id": "pedro@gmail.com",
+      "nombre": "Pedro",
+      "apellido": "Gonzales",
+      "edad": 25,
+      "alias": "pedro@gmail.com",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"
+    },
+    "text": "Hola!"
+  },
+  {
+    "id": 1,
+    "author": {
+      "id": "lucia@hotmail.com",
+      "nombre": "Lucia",
+      "apellido": "Gonzales",
+      "edad": 23,
+      "alias": "lucia@hotmail.com",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png"
+    },
+    "text": "que tal!"
+  },
+  {
+    "id": 2,
+    "author": {
+      "id": "diego@outlook.com",
+      "nombre": "Diego",
+      "apellido": "Irusta",
+      "edad": 32,
+      "alias": "diego@outlook.com",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/supportmale-512.png"
+    },
+    "text": "Cómo estan todos?"
+  },
+  {
+    "id": 3,
+    "author": {
+      "id": "gonzalo@gmail.com",
+      "nombre": "Gonzalo",
+      "apellido": "Araos",
+      "edad": 12,
+      "alias": "gonzalo@gmail.com",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"
+    },
+    "text": "El server esta corriendo!"
+  },
+  {
+    "id": 4,
+    "author": {
+      "id": "pedro@gmail.com",
+      "nombre": "Pedro",
+      "apellido": "Gonzales",
+      "edad": 23,
+      "alias": "pedro@gmail.com",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png"
+    },
+    "text": "funciona los sockets!"
+  }
+]
