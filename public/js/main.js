@@ -77,14 +77,13 @@ const renderMessages = (messages) => {
 
 //-----------------------------
 const renderMessagesNormalized = (allMensajes) => {
-  // console.log(dataDenormalized.messages[0].author.id);
-
   const html = allMensajes.messages
     .map((message) => {
       return `
         <div>
             <strong style="color:blue;">${message.author.id}</strong>
                 <span style="color:brown;">[${message.date}]: </span><em style="color:green;">${message.text}</em>
+                <img src='${message.author.avatar}' width='32px' />
         </div>
         `;
     })
@@ -139,15 +138,15 @@ const schemaMessages = new normalizr.schema.Entity("messages", {
 });
 
 socket.on("messages", (data) => {
-  // console.log(data);
-  const dataDenormalized = normalizr.denormalize(
+  console.log(data);
+  const denormalize = normalizr.denormalize;
+  const dataDenormalized = denormalize(
     data.result,
     schemaMessages,
     data.entities
   );
   console.log(dataDenormalized);
-  console.log(dataDenormalized.messages[0].author.id);
-  // console.log(dataDenormalized.messages[index]);
+
   // renderMessages(data);
   renderMessagesNormalized(dataDenormalized);
 });
