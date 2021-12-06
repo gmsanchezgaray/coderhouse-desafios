@@ -2,15 +2,14 @@ const { normalize, schema } = require("normalizr");
 
 const schemaAuthor = new schema.Entity("author", {}, { idAttribute: "email" });
 
-const schemaMessage = new schema.Entity("message", {
-  author: schemaAuthor,
+const schemaMensaje = new schema.Entity("message", { author: schemaAuthor });
+
+const schemaMensajes = new schema.Entity("messages", {
+  mensajes: [schemaMensaje],
 });
 
-const schemaMessages = new schema.Entity("messages", {
-  mesagges: [schemaMessage],
-});
-
-const normalizeMessages = (messages) => normalize(messages, schemaMessages);
+const normalizeMessages = (mensajesConId) =>
+  normalize({ id: "mensajes", messages: mensajesConId }, schemaMensajes);
 module.exports = {
   normalizeMessages,
 };

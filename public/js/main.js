@@ -77,16 +77,15 @@ const renderMessages = (messages) => {
 
 //-----------------------------
 const renderMessagesNormalized = (allMensajes) => {
-  // console.log(dataDenormalized.messages[0].author.id);
-
-  const html = allMensajes.messages
+  const html = allMensajes.messages.messages
     .map((message) => {
       return `
-        <div>
-            <strong style="color:blue;">${message.author.id}</strong>
-                <span style="color:brown;">[${message.date}]: </span><em style="color:green;">${message.text}</em>
-        </div>
-        `;
+      <div>
+          <strong style="color:blue;">${message.author.id}</strong>
+              <span style="color:brown;">[${message.author.date}]: </span><em style="color:green;">${message.text}</em>
+              <img src =${message.author.avatar} width='32px'>
+      </div>
+      `;
     })
     .join(" ");
 
@@ -139,15 +138,42 @@ const schemaMessages = new normalizr.schema.Entity("messages", {
 });
 
 socket.on("messages", (data) => {
-  // console.log(data);
   const dataDenormalized = normalizr.denormalize(
     data.result,
     schemaMessages,
     data.entities
   );
-  console.log(dataDenormalized);
-  console.log(dataDenormalized.messages[0].author.id);
-  // console.log(dataDenormalized.messages[index]);
-  // renderMessages(data);
+
+  const messagesNormalizedSize = JSON.stringify(data).length;
+  // console.log(data, messagesNormalizedSize);
+
+  const messagesDenormalizedSize = JSON.stringify(dataDenormalized).length;
+  // console.log(dataDenormalized, messagesDenormalizedSize);
+
+  const compressionPercentage = parseInt(
+    (messagesDenormalizedSize / messagesNormalizedSize) * 100
+  );
+  // console.log(`Porcentaje de compresión ${compressionPercentage}%`);
+  document.getElementById("compresion").innerText = compressionPercentage;
+  //-------------------------------------------
   renderMessagesNormalized(dataDenormalized);
 });
+
+// socket.on('mensajes', mensajesN => {
+
+//   const mensajesNsize = JSON.stringify(mensajesN).length
+//   console.log(mensajesN, mensajesNsize);
+
+//   const mensajesD = normalizr.denormalize(mensajesN.result, schemaMensajes, mensajesN.entities)
+
+//   const mensajesDsize = JSON.stringify(mensajesD).length
+//   console.log(mensajesD, mensajesDsize);
+
+//   const porcentajeC = parseInt((mensajesNsize * 100) / mensajesDsize)
+//   console.log(`Porcentaje de compresión ${porcentajeC}%`)
+//   document.getElementById('compresion-info').innerText = porcentajeC
+
+//   console.log(mensajesD.mensajes);
+//   const html = makeHtmlList(mensajesD.mensajes)
+//   document.getElementById('mensajes').innerHTML = html;
+// })
