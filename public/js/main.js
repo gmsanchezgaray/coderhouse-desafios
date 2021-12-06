@@ -158,22 +158,3 @@ socket.on("messages", (data) => {
   //-------------------------------------------
   renderMessagesNormalized(dataDenormalized);
 });
-
-// socket.on('mensajes', mensajesN => {
-
-//   const mensajesNsize = JSON.stringify(mensajesN).length
-//   console.log(mensajesN, mensajesNsize);
-
-//   const mensajesD = normalizr.denormalize(mensajesN.result, schemaMensajes, mensajesN.entities)
-
-//   const mensajesDsize = JSON.stringify(mensajesD).length
-//   console.log(mensajesD, mensajesDsize);
-
-//   const porcentajeC = parseInt((mensajesNsize * 100) / mensajesDsize)
-//   console.log(`Porcentaje de compresión ${porcentajeC}%`)
-//   document.getElementById('compresion-info').innerText = porcentajeC
-
-//   console.log(mensajesD.mensajes);
-//   const html = makeHtmlList(mensajesD.mensajes)
-//   document.getElementById('mensajes').innerHTML = html;
-// })
