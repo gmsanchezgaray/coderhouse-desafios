@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const { Server: SocketServer } = require("socket.io");
 const { Server: HttpServer } = require("http");
 
@@ -18,12 +19,14 @@ const {
 const productsRouter = require("./routers/products");
 const messagesRouter = require("./routers/messages");
 const productsFakerRouter = require("./routers/productsFaker");
+const authorizationRouter = require("./routers/authorization");
+const homeRouter = require("./routers/home");
 
 // CONFIGURACION
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new SocketServer(httpServer);
-
+app.set("view engine", "ejs");
 const PORT = 8080;
 
 // Midlewares de express
@@ -33,8 +36,21 @@ app.use(express.urlencoded({ extended: true }));
 // Configuracion de routers y página inicial
 app.use(express.static("public"));
 
+// Configuracion de Session
+app.use(
+  session({
+    secret: "shhhhhhhhhhhhhhhhhhhhh",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60000, // Session de 1 minuto == 60000 milisegundos
+    },
+  })
+);
 app.use("/api/productos", productsRouter);
 app.use("/api/mensajes", messagesRouter);
+app.use(authorizationRouter);
+app.use(homeRouter);
 
 // Ruta de productos faker
 app.use("/api/products-test", productsFakerRouter);
